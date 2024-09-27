@@ -9,7 +9,6 @@
 ********************************************************************************/ 
 
 
-
 const Data = require ('./modules/collegeData.js');
 
 //initialize using then and catch
