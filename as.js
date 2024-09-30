@@ -9,13 +9,33 @@
 ********************************************************************************/ 
 
 
-const Data = require ('./modules/collegeData.js');
+// a2.js
 
-//initialize using then and catch
+const collegeData = require('./modules/collegeData.js');  // Import the collegeData module
 
-//invoke other functions from collegeData
+// Initialize the data
+collegeData.initialize()
+    .then(() => {
+        console.log("Data successfully initialized");
 
-//getAllStudent, getCourses, getTAs
+        // Get and display all students
+        return collegeData.getAllStudents();
+    })
+    .then((students) => {
+        console.log(`Successfully retrieved ${students.length} students`);
 
+        // Get and display all courses
+        return collegeData.getCourses();
+    })
+    .then((courses) => {
+        console.log(`Successfully retrieved ${courses.length} courses`);
 
-//if succesful we'll retrieve students, courses and ta
+        // Get and display all TAs
+        return collegeData.getTAs();
+    })
+    .then((TAs) => {
+        console.log(`Successfully retrieved ${TAs.length} TAs`);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
